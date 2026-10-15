@@ -1,0 +1,68 @@
+/* ==========================================================================
+   ASU MARE? - HOJA DE ESTILOS GENERALES (CSS OFICIAL DE ENTREGA)
+   ========================================================================== */
+
+/* Fondo general de la aplicación Nocturne */
+body {
+    background-color: #141416;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+/* Efecto de Cristal Líquido (Glassmorphism Premium) */
+.glass-header {
+    background: rgba(20, 20, 22, 0.8);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card {
+    background: rgba(25, 25, 28, 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Contenedor de Perspectiva 3D */
+.perspective-view {
+    perspective: 1000px;
+}
+
+/* Capas de la Anatomía del Ceviche */
+.layer-elipse {
+    transition: transform 0.1s ease-out, box-shadow 0.3s, scale 0.3s;
+    will-change: transform;
+}
+
+.layer-elipse:hover {
+    box-shadow: 0 0 25px rgba(255, 42, 122, 0.3);
+}
+
+/* Personalización de la Barra de Desplazamiento (Scrollbar Oscuro Invisble) */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #141416;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 199, 0, 0.2);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 199, 0, 0.4);
+}
+
+/* Estilos para el Menú Lateral Desplegable Móvil (Cortina de Cristal) */
+.mobile-drawer-glass {
+    background: rgba(20, 20, 22, 0.95);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
