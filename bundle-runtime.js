@@ -2,6 +2,99 @@ document.addEventListener('DOMContentLoaded', async function() {
   const loading = document.getElementById('__bundler_loading');
   function setStatus(msg) { if (loading) loading.textContent = msg; }
 
+  const syncMapRouteCard = function() {
+    const mapFrame = document.querySelector('#sucursales iframe[title="Mapa"]');
+    const mapContainer = mapFrame && mapFrame.parentElement;
+    const selectedBranch = Array.from(document.querySelectorAll('.branch-card'))
+      .find(function(card) { return card.style.backgroundColor.includes('255, 194, 14'); });
+    if (!mapContainer || !selectedBranch) return false;
+    const mapHint = Array.from(mapContainer.children)
+      .find(function(element) {
+        return element !== mapFrame && element.tagName === 'DIV' && /mapa|map/i.test(element.textContent);
+      });
+    if (mapHint) {
+      mapHint.hidden = true;
+      mapHint.style.setProperty('display', 'none', 'important');
+    }
+
+    const branchName = selectedBranch.querySelector(
+      ':scope > div:nth-child(2) > div:first-child > span:first-child'
+    )?.textContent.trim();
+    const branchAddress = selectedBranch.querySelector(
+      ':scope > div:nth-child(2) > span:nth-child(2)'
+    )?.textContent.trim();
+    const directions = selectedBranch.querySelector('a.branch-directions');
+    const branchImage = selectedBranch.querySelector('.branch-photo img');
+    if (!branchName || !branchAddress || !directions) return false;
+
+    const activeLanguage = Array.from(document.querySelectorAll('.international-option'))
+      .find(function(button) { return button.style.backgroundColor.includes('255, 194, 14'); })
+      ?.textContent.trim();
+    const routeAction = activeLanguage === 'EN' ? 'Get directions' : 'Cómo llegar';
+    let routeCard = mapContainer.querySelector(':scope > .map-route-card');
+    if (!routeCard) {
+      routeCard = document.createElement('a');
+      routeCard.className = 'map-route-card';
+      routeCard.target = '_blank';
+      routeCard.rel = 'noopener noreferrer';
+
+      const image = document.createElement('img');
+      image.alt = '';
+      image.setAttribute('aria-hidden', 'true');
+
+      const copy = document.createElement('span');
+      copy.className = 'map-route-copy';
+      const label = document.createElement('span');
+      label.className = 'map-route-label';
+      const name = document.createElement('strong');
+      name.className = 'map-route-name';
+      const address = document.createElement('span');
+      address.className = 'map-route-address';
+      copy.append(label, name, address);
+      routeCard.append(image, copy);
+      mapContainer.appendChild(routeCard);
+    }
+
+    const image = routeCard.querySelector('img');
+    const name = routeCard.querySelector('.map-route-name');
+    const address = routeCard.querySelector('.map-route-address');
+    const label = routeCard.querySelector('.map-route-label');
+    const imageSource = branchImage?.getAttribute('src');
+    const accessibleName = routeAction + (activeLanguage === 'EN' ? ' to ' : ' a ') +
+      branchName + ', ' + branchAddress;
+    if (routeCard.href !== directions.href) routeCard.href = directions.href;
+    if (routeCard.getAttribute('aria-label') !== accessibleName) {
+      routeCard.setAttribute('aria-label', accessibleName);
+    }
+    if (label && label.textContent !== routeAction) label.textContent = routeAction;
+    if (image && imageSource && image.getAttribute('src') !== imageSource) {
+      image.setAttribute('src', imageSource);
+    }
+    if (imageSource) {
+      const photo = 'url("' + imageSource + '")';
+      if (mapContainer.style.getPropertyValue('--map-route-photo') !== photo) {
+        mapContainer.style.setProperty('--map-route-photo', photo);
+      }
+    }
+    if (name && name.textContent !== branchName) name.textContent = branchName;
+    if (address && address.textContent !== branchAddress) address.textContent = branchAddress;
+    return true;
+  };
+
+  const mapRouteObserver = new MutationObserver(syncMapRouteCard);
+  mapRouteObserver.observe(document, {
+    subtree: true,
+    childList: true,
+    attributes: true,
+    attributeFilter: ['src', 'style']
+  });
+  let mountAttempts = 0;
+  const mapRouteRetry = setInterval(function() {
+    mountAttempts += 1;
+    if (syncMapRouteCard() || mountAttempts >= 40) clearInterval(mapRouteRetry);
+  }, 250);
+  syncMapRouteCard();
+
   const FONT_MIME = /^(font[/]|application[/](x-)?font-|application[/]vnd\.ms-fontobject)/i;
   const MIME_TOKEN = /^[\w.+-]+[/][\w.+-]+$/;
   function toBase64(bytes) {
@@ -330,7 +423,27 @@ document.addEventListener('DOMContentLoaded', async function() {
     // Babel standalone auto-transforms type=text/babel on DOMContentLoaded,
     // which fired before we swapped the document. Trigger manually if present.
     if (window.Babel && typeof window.Babel.transformScriptTags === 'function') {
-      window.Babel.transformScriptTags();
+    window.Babel.transformScriptTags();
+    }
+
+    if (!document.querySelector('link[data-asu-final-styles]')) {
+      const enhancementStyles = document.createElement('link');
+      enhancementStyles.rel = 'stylesheet';
+      enhancementStyles.href = new URL('ui-final-enhancements.css', window.location.href).href;
+      enhancementStyles.setAttribute('data-asu-final-styles', 'true');
+      enhancementStyles.onerror = function() {
+        console.error('[ASU MARE] No se pudieron cargar los estilos de sucursales y reservas.');
+      };
+      document.head.appendChild(enhancementStyles);
+    }
+
+    if (!window.__asuEnhancementsLoaded) {
+      const enhancementScript = document.createElement('script');
+      enhancementScript.src = new URL('ux-enhancements.js', window.location.href).href;
+      enhancementScript.onerror = function() {
+        console.error('[ASU MARE] No se pudieron cargar las mejoras de sucursales, reservas y redes.');
+      };
+      document.head.appendChild(enhancementScript);
     }
   } catch (err) {
     setStatus('Error unpacking: ' + err.message);

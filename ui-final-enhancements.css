@@ -1,0 +1,273 @@
+.map-route-card {
+    position: absolute;
+    z-index: 6;
+    bottom: 14px;
+    left: 14px;
+    display: grid;
+    grid-template-columns: 72px minmax(0, 1fr);
+    align-items: center;
+    gap: 11px;
+    width: min(250px, calc(100% - 28px));
+    padding: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 15px;
+    background: rgba(18, 19, 22, 0.9);
+    color: #f5f3ee;
+    text-decoration: none;
+    box-shadow: 0 8px 26px rgba(0, 0, 0, 0.36);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.map-route-card:focus-visible,
+.map-route-card:hover {
+    border-color: rgba(255, 194, 14, 0.72);
+    background: rgba(18, 19, 22, 0.96);
+    color: #fff;
+}
+
+.map-route-card img {
+    width: 72px;
+    height: 66px;
+    border-radius: 10px;
+    object-fit: cover;
+    object-position: center 48%;
+}
+
+.map-route-copy {
+    display: grid;
+    min-width: 0;
+    gap: 3px;
+}
+
+.map-route-label {
+    color: #ffd454;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.map-route-name {
+    overflow: hidden;
+    font-family: Outfit, sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.map-route-address {
+    overflow: hidden;
+    color: #c4c4cb;
+    font-size: 11px;
+    line-height: 1.35;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.branch-map-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.branch-map-fallback[hidden] {
+    display: none !important;
+}
+
+.branch-map-fallback {
+    position: absolute;
+    z-index: 8;
+    inset: 0;
+    display: grid;
+    align-content: center;
+    justify-items: center;
+    gap: 14px;
+    padding: 24px;
+    background:
+        linear-gradient(rgba(18, 19, 22, 0.56), rgba(18, 19, 22, 0.9)),
+        var(--map-route-photo, linear-gradient(145deg, #29262b, #17181b));
+    background-position: center;
+    background-size: cover;
+    color: #f5f3ee;
+    text-align: center;
+}
+
+.branch-map-fallback > img {
+    width: min(220px, 42%);
+    max-height: 150px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 14px;
+    object-fit: cover;
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.38);
+}
+
+.branch-map-fallback-copy {
+    display: grid;
+    justify-items: center;
+    gap: 6px;
+}
+
+.branch-map-fallback-copy strong {
+    font: 800 20px/1.2 Outfit, sans-serif;
+}
+
+.branch-map-fallback-copy span {
+    color: #d0cfd2;
+    font-size: 13px;
+}
+
+.branch-map-fallback-copy a,
+.reserve-confirmation-contact {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 6px;
+    padding: 0 18px;
+    border: 1px solid rgba(255, 194, 14, 0.55);
+    border-radius: 999px;
+    background: #ffc20e;
+    color: #141416;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.branch-map-fallback-copy a:hover,
+.branch-map-fallback-copy a:focus-visible,
+.reserve-confirmation-contact:hover,
+.reserve-confirmation-contact:focus-visible {
+    background: #ffd454;
+    color: #141416;
+}
+
+.reserve-phone-field {
+    display: flex;
+    flex-direction: column;
+    grid-column: 1 / -1;
+    min-width: 0;
+    gap: 7px;
+    color: #a9a9b0;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+}
+
+.reserve-phone-field input {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 48px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    color: #f5f3ee;
+    font: 500 15px/1.4 "DM Sans", sans-serif;
+}
+
+.reserve-form-error {
+    grid-column: 1 / -1;
+    padding: 10px 12px;
+    border: 1px solid rgba(232, 36, 106, 0.42);
+    border-radius: 10px;
+    background: rgba(232, 36, 106, 0.1);
+    color: #ff9fbd;
+    font-size: 13px;
+}
+
+.reserve-form-error[hidden],
+.reserve-form-card form[hidden] {
+    display: none !important;
+}
+
+.reserve-confirmation {
+    display: grid;
+    justify-items: start;
+    gap: 14px;
+    padding: clamp(20px, 4vw, 32px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 22px;
+    background: rgba(25, 25, 28, 0.84);
+    color: #f5f3ee;
+    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
+}
+
+.reserve-confirmation-icon {
+    display: grid;
+    width: 48px;
+    height: 48px;
+    place-items: center;
+    border-radius: 50%;
+    background: #ffc20e;
+    color: #141416;
+    font-size: 26px;
+    font-weight: 900;
+}
+
+.reserve-confirmation h3 {
+    margin: 0;
+    font: 900 clamp(24px, 4vw, 34px)/1.1 Outfit, sans-serif;
+}
+
+.reserve-confirmation p {
+    max-width: 60ch;
+    margin: 0;
+    color: #c4c4cb;
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+.reserve-confirmation .reserve-demo-notice {
+    padding: 12px 14px;
+    border-left: 3px solid #e8246a;
+    border-radius: 0 10px 10px 0;
+    background: rgba(232, 36, 106, 0.1);
+    color: #ffe4ed;
+    font-weight: 700;
+}
+
+.reserve-confirmation-summary {
+    display: grid;
+    width: 100%;
+    gap: 8px;
+    margin: 0;
+}
+
+.reserve-confirmation-summary > div {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.reserve-confirmation-summary dt {
+    min-width: 0;
+    color: #a7a7b0;
+}
+
+.reserve-confirmation-summary dd {
+    min-width: 0;
+    overflow-wrap: anywhere;
+    margin: 0;
+    color: #f5f3ee;
+    font-weight: 700;
+    text-align: right;
+}
+
+.reserve-confirmation-reset {
+    min-height: 44px;
+    padding: 0 14px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 999px;
+    background: transparent;
+    color: #f5f3ee;
+    font: 700 13px/1.3 "DM Sans", sans-serif;
+    cursor: pointer;
+}
+
+.reserve-confirmation-reset:hover,
+.reserve-confirmation-reset:focus-visible {
+    border-color: #ffc20e;
+    color: #ffd454;
+}

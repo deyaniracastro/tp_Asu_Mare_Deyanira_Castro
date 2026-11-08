@@ -66,3 +66,1058 @@ body {
     -webkit-backdrop-filter: blur(25px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
+
+/* Ajustes de presentación compartidos por las cinco páginas */
+html {
+    scroll-padding-top: 96px;
+}
+
+body {
+    color: #f5f3ee;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[role="button"]:focus-visible {
+    outline: 2px solid #ffc20e !important;
+    outline-offset: 3px !important;
+}
+
+[class~="text-gray-500"],
+[class~="text-zinc-500"],
+[class~="text-neutral-500"],
+[class~="text-slate-500"] {
+    color: #a7a7b0 !important;
+}
+
+/* Inicio: una imagen local queda debajo del video como respaldo. */
+#inicio {
+    background-color: #101012 !important;
+    background-image:
+        linear-gradient(90deg, rgba(16, 16, 18, 0.72), rgba(16, 16, 18, 0.2)),
+        url("assets/imagenes/ceviche-clasico.png") !important;
+    background-position: center, center 58% !important;
+    background-size: cover !important;
+}
+
+#inicio > video {
+    opacity: 0.68 !important;
+    object-position: center 52% !important;
+}
+
+#inicio > div:nth-of-type(1) {
+    background: linear-gradient(
+        rgba(16, 16, 18, 0.38) 0%,
+        rgba(16, 16, 18, 0.24) 55%,
+        rgba(16, 16, 18, 0.96) 100%
+    ) !important;
+    backdrop-filter: blur(0.5px) !important;
+    -webkit-backdrop-filter: blur(0.5px) !important;
+}
+
+#inicio > div:nth-of-type(2) {
+    background: linear-gradient(
+        90deg,
+        rgba(16, 16, 18, 0.62) 0%,
+        rgba(16, 16, 18, 0.34) 50%,
+        rgba(16, 16, 18, 0.14) 100%
+    ) !important;
+}
+
+#inicio img[alt="Leche de tigre"] {
+    object-fit: cover !important;
+    object-position: center 48% !important;
+}
+
+/* Inicio: promociones más compactas y ritmo de secciones más parejo. */
+.home-restored-section {
+    padding-top: clamp(48px, 5.4vw, 70px) !important;
+    padding-bottom: clamp(48px, 5.4vw, 70px) !important;
+}
+
+.home-restored-section + .home-restored-section {
+    padding-top: clamp(40px, 4.5vw, 60px) !important;
+}
+
+.home-promo-grid {
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.15fr) minmax(0, 0.92fr) !important;
+    grid-template-rows: minmax(220px, auto) !important;
+    align-content: start !important;
+    gap: 12px !important;
+    margin-top: 24px !important;
+}
+
+.home-promo-card {
+    grid-column: auto !important;
+    grid-row: auto !important;
+    min-height: 220px !important;
+    justify-content: space-between !important;
+    padding: clamp(20px, 2.4vw, 28px) !important;
+}
+
+.home-promo-card--monday {
+    min-height: 220px !important;
+}
+
+.home-promo-link {
+    margin-top: 12px !important;
+}
+
+.home-chef-grid {
+    gap: 18px !important;
+    margin-top: 24px !important;
+}
+
+.home-banner-image {
+    object-position: center 48% !important;
+}
+
+/* Menú: agrupa visualmente cada capa con su ilustración y descripción. */
+#menu .anatomy-layer {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr) !important;
+    align-items: center !important;
+    column-gap: clamp(14px, 2vw, 24px) !important;
+    min-height: 124px !important;
+    margin-bottom: 8px;
+    padding: 8px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 16px;
+    background: linear-gradient(115deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.012));
+}
+
+#menu .anatomy-layer:hover,
+#menu .anatomy-layer:focus-visible {
+    border-color: rgba(255, 194, 14, 0.45);
+}
+
+#menu .anatomy-layer-art {
+    min-height: clamp(78px, 8vw, 112px) !important;
+}
+
+#menu .anatomy-layer-leche .anatomy-layer-art {
+    min-height: 128px !important;
+}
+
+#menu .anatomy-layer-visual img {
+    max-height: 116px;
+    object-fit: contain;
+}
+
+#menu .anatomy-layer-copy {
+    padding: 10px 12px !important;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    background: rgba(12, 13, 16, 0.28);
+}
+
+#menu .anatomy-layer-description,
+#menu .anatomy-layer-description > div {
+    color: #c4c4cb !important;
+    line-height: 1.5 !important;
+}
+
+.menu-anatomy-jump {
+    display: none;
+}
+
+.anatomy-assemble-control {
+    margin-top: 22px !important;
+}
+
+#platos {
+    scroll-margin-top: 104px;
+}
+
+/* Menú: fotos uniformes y prioridad clara para nombre, precio y acción. */
+#menu .menu-dish-photo {
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #202125 !important;
+}
+
+#menu .menu-dish-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover !important;
+    object-position: center 50% !important;
+}
+
+#menu > div:first-child {
+    position: static !important;
+    top: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    overscroll-behavior: auto !important;
+}
+
+#menu .scp4 {
+    min-width: 0 !important;
+    overflow: hidden;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+    background: linear-gradient(145deg, #202125, #18191c) !important;
+}
+
+#menu .scp4 > p {
+    color: #c4c4cb !important;
+}
+
+.menu-whatsapp-header,
+.menu-whatsapp-desktop,
+.reserve-whatsapp-header {
+    display: none;
+    flex: 0 0 40px;
+    width: 40px;
+    height: 40px;
+    place-items: center;
+    border: 1px solid rgba(37, 211, 102, 0.55);
+    border-radius: 50%;
+    background: rgba(37, 211, 102, 0.13);
+    color: #7be4a0;
+    font-size: 19px;
+    text-decoration: none;
+}
+
+.menu-whatsapp-header:hover,
+.menu-whatsapp-header:focus-visible,
+.menu-whatsapp-desktop:hover,
+.menu-whatsapp-desktop:focus-visible,
+.reserve-whatsapp-header:hover,
+.reserve-whatsapp-header:focus-visible {
+    border-color: #25d366;
+    background: rgba(37, 211, 102, 0.22);
+    color: #a3f0bd;
+}
+
+.reserve-whatsapp {
+    right: 16px !important;
+    bottom: calc(16px + env(safe-area-inset-bottom)) !important;
+    width: 52px !important;
+    height: 52px !important;
+}
+
+body:has(#menu) .menu-whatsapp-desktop {
+    display: grid;
+}
+
+body:has(#menu) .reserve-whatsapp {
+    display: none !important;
+}
+
+@media (max-width: 720px) {
+    html {
+        scroll-padding-top: 84px;
+    }
+
+    .home-restored-section {
+        padding: 46px 18px !important;
+    }
+
+    .home-restored-section + .home-restored-section {
+        padding-top: 38px !important;
+    }
+
+    .home-promo-grid {
+        grid-template-columns: minmax(0, 1fr) !important;
+        grid-template-rows: none !important;
+        gap: 12px !important;
+    }
+
+    .home-promo-card,
+    .home-promo-card--monday,
+    .home-promo-card--midweek,
+    .home-promo-card--thursday {
+        grid-column: auto !important;
+        grid-row: auto !important;
+        min-height: 172px !important;
+    }
+
+    .home-promo-card--monday {
+        min-height: 188px !important;
+    }
+
+    .home-chef-grid {
+        gap: 12px !important;
+    }
+
+    .home-promo-grid,
+    .home-chef-grid {
+        scroll-padding-inline: 18px;
+        scroll-snap-type: x mandatory;
+    }
+
+    .home-promo-grid > *,
+    .home-chef-grid > * {
+        scroll-snap-align: start;
+    }
+
+    .menu-anatomy-jump {
+        display: inline-flex;
+        min-height: 42px;
+        align-items: center;
+        gap: 9px;
+        margin: 0 0 16px;
+        padding: 0 16px;
+        border: 1px solid rgba(255, 194, 14, 0.55);
+        border-radius: 999px;
+        background: rgba(255, 194, 14, 0.09);
+        color: #ffd454;
+        font-size: 13px;
+        font-weight: 800;
+        text-decoration: none;
+    }
+
+    .menu-anatomy-jump:hover,
+    .menu-anatomy-jump:focus-visible {
+        background: rgba(255, 194, 14, 0.16);
+        color: #ffe083;
+    }
+
+    #menu .anatomy-layer {
+        min-height: 108px !important;
+        column-gap: 8px !important;
+        margin-bottom: 6px;
+        padding: 6px 8px;
+    }
+
+    #menu .anatomy-layer-art {
+        min-height: 84px !important;
+    }
+
+    #menu .anatomy-layer-leche .anatomy-layer-art {
+        min-height: 112px !important;
+    }
+
+    #menu .anatomy-layer-copy {
+        padding: 8px !important;
+    }
+
+    #menu .anatomy-layer-visual img {
+        max-height: 104px;
+    }
+
+    #menu .menu-dish-photo {
+        height: auto !important;
+        max-height: 250px;
+        aspect-ratio: 16 / 10 !important;
+    }
+
+    #menu .scp4 {
+        gap: 10px !important;
+        padding: 14px !important;
+    }
+
+    #menu .scp4 > h3 {
+        font-size: clamp(20px, 5vw, 24px) !important;
+        line-height: 1.15 !important;
+    }
+
+    #menu .scp4 > div:last-child {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    #menu .anatomy-assemble-control {
+        margin-top: 18px !important;
+    }
+
+    #menu .menu-dish-grid {
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 14px !important;
+    }
+
+    .menu-whatsapp-header {
+        display: grid;
+    }
+
+    body:has(#menu) .reserve-whatsapp {
+        display: none !important;
+    }
+
+    .reserve-whatsapp {
+        right: 4px !important;
+        bottom: calc(8px + env(safe-area-inset-bottom)) !important;
+        width: 44px !important;
+        height: 44px !important;
+    }
+}
+
+@media (min-width: 721px) and (max-width: 1100px) {
+    .home-promo-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        grid-template-rows: auto !important;
+    }
+
+    .home-promo-card--thursday {
+        grid-column: 1 / -1 !important;
+    }
+
+    #menu .menu-dish-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+}
+
+@media (max-width: 900px) {
+    #menu {
+        grid-template-columns: minmax(0, 1fr) !important;
+    }
+
+    #menu > div:nth-child(2) {
+        order: -1;
+    }
+
+    #menu > div:first-child {
+        order: 1;
+    }
+
+    body:has(#menu) .menu-whatsapp-desktop {
+        display: none;
+    }
+
+    body:has(.menu-whatsapp-header) .menu-whatsapp-header {
+        display: grid;
+    }
+
+    body:has(.reserve-whatsapp-header) .reserve-whatsapp-header {
+        display: grid;
+    }
+
+    body:has(.reserve-whatsapp-header) .reserve-whatsapp {
+        display: none !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto !important;
+    }
+
+    #inicio {
+        background-image:
+            linear-gradient(90deg, rgba(16, 16, 18, 0.42), rgba(16, 16, 18, 0.1)),
+            url("assets/imagenes/ceviche-clasico.png") !important;
+    }
+
+    #inicio > video {
+        display: none !important;
+    }
+
+    #inicio > div:nth-of-type(1) {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Ajustes de dirección de arte: jerarquía, fotografía y movimiento más medido. */
+#inicio h1 {
+    max-width: 860px;
+    font-size: clamp(52px, 5.2vw, 72px) !important;
+    line-height: 0.96 !important;
+    letter-spacing: -0.05em !important;
+}
+
+#inicio > div:last-child > div:nth-child(2) {
+    width: clamp(330px, 34vw, 430px) !important;
+    flex: 0 1 430px !important;
+    aspect-ratio: 1;
+}
+
+#inicio .hero-plate-image {
+    object-position: center 52% !important;
+}
+
+#menu .anatomy-layer-copy {
+    padding: 10px 12px !important;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+#sucursales .branch-photo {
+    background-color: #24252a !important;
+    background-image: none !important;
+    animation: none !important;
+}
+
+#sucursales .branch-card a {
+    min-height: 44px;
+    align-items: center;
+}
+
+#sucursales iframe {
+    background-color: transparent !important;
+    background-image: none !important;
+    animation: none !important;
+}
+
+.branch-card:hover .branch-directions {
+    animation: none !important;
+}
+
+@media (max-width: 900px) {
+    #inicio h1 {
+        font-size: clamp(54px, 7vw, 68px) !important;
+    }
+
+    #inicio > div:last-child > div:nth-child(2) {
+        width: min(38vw, 340px) !important;
+        flex-basis: 340px !important;
+    }
+}
+
+@media (max-width: 720px) {
+    #inicio h1 {
+        font-size: clamp(42px, 11.4vw, 48px) !important;
+        line-height: 0.98 !important;
+    }
+
+    #inicio > div:last-child > div:nth-child(2) {
+        width: min(68vw, 260px) !important;
+        flex-basis: 260px !important;
+        margin-top: -12px;
+    }
+
+    #inicio > div:last-child > div:nth-child(2) > div {
+        inset: 5% !important;
+    }
+
+    #menu .anatomy-layer-copy {
+        padding: 8px !important;
+    }
+
+    aside:has(.checkout-panel) > div:nth-child(2) {
+        flex: 0 1 auto !important;
+        max-height: min(26vh, 220px);
+    }
+
+    aside:has(.checkout-panel) > .checkout-panel {
+        margin-top: 12px !important;
+    }
+
+    body:has(.checkout-panel) div[style*="bottom: 96px"] {
+        bottom: 24px !important;
+    }
+}
+
+/* Fase 3: más protagonismo gastronómico y recorridos móviles más compactos. */
+#inicio > video {
+    opacity: 0.8 !important;
+    object-position: center 48% !important;
+}
+
+#inicio > div:nth-of-type(1) {
+    background: linear-gradient(
+        rgba(16, 16, 18, 0.3) 0%,
+        rgba(16, 16, 18, 0.2) 55%,
+        rgba(16, 16, 18, 0.92) 100%
+    ) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+#inicio > div:nth-of-type(2) {
+    background: linear-gradient(
+        90deg,
+        rgba(16, 16, 18, 0.66) 0%,
+        rgba(16, 16, 18, 0.35) 50%,
+        rgba(16, 16, 18, 0.16) 100%
+    ) !important;
+}
+
+.branch-directions {
+    border-color: rgba(255, 194, 14, 0.42) !important;
+    color: #ffd454 !important;
+}
+
+.branch-card .branch-directions:hover,
+.branch-card .branch-directions:focus-visible {
+    border-color: #ffc20e !important;
+    background: rgba(255, 194, 14, 0.1) !important;
+    color: #ffe083 !important;
+}
+
+#sucursales div:has(> iframe[title="Mapa"]) {
+    background:
+        linear-gradient(115deg, rgba(17, 18, 21, 0.48), rgba(17, 18, 21, 0.72)),
+        var(--map-route-photo, linear-gradient(145deg, #29262b, #17181b)) !important;
+    background-position: center !important;
+    background-size: cover !important;
+}
+
+.map-route-card {
+    position: absolute;
+    z-index: 6;
+    bottom: 14px;
+    left: 14px;
+    display: grid;
+    grid-template-columns: 72px minmax(0, 1fr);
+    align-items: center;
+    gap: 11px;
+    width: min(250px, calc(100% - 28px));
+    padding: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 15px;
+    background: rgba(18, 19, 22, 0.9);
+    color: #f5f3ee;
+    text-decoration: none;
+    box-shadow: 0 8px 26px rgba(0, 0, 0, 0.36);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.map-route-card:focus-visible,
+.map-route-card:hover {
+    border-color: rgba(255, 194, 14, 0.72);
+    background: rgba(18, 19, 22, 0.96);
+    color: #fff;
+}
+
+.map-route-card img {
+    width: 72px;
+    height: 66px;
+    border-radius: 10px;
+    object-fit: cover;
+    object-position: center 48%;
+}
+
+.map-route-copy {
+    display: grid;
+    min-width: 0;
+    gap: 3px;
+}
+
+.map-route-label {
+    color: #ffd454;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.map-route-name {
+    overflow: hidden;
+    font-family: Outfit, sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.map-route-address {
+    overflow: hidden;
+    color: #c4c4cb;
+    font-size: 11px;
+    line-height: 1.35;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@media (max-width: 720px) {
+    .reserve-form-card form {
+        gap: 11px !important;
+        margin-top: 16px !important;
+    }
+
+    .reserve-form-card form > div:first-child button[style*="255, 194, 14"] {
+        box-shadow: 0 0 0 2px rgba(255, 194, 14, 0.16);
+    }
+
+    .reserve-notes-field textarea {
+        min-height: 76px !important;
+        height: 76px !important;
+    }
+
+    .reserve-form-card form > button:last-child {
+        min-height: 50px !important;
+    }
+
+    aside[aria-label="El Barco"]:not(:has(.checkout-panel)) > div:nth-child(2) {
+        flex: 0 1 auto !important;
+        max-height: min(42vh, 320px);
+    }
+
+    aside:has(.checkout-panel) > div:nth-child(2) {
+        max-height: min(25vh, 200px);
+    }
+
+    aside:has(.checkout-panel) > .checkout-panel {
+        gap: 9px !important;
+        padding: 14px !important;
+        margin-top: 10px !important;
+    }
+
+    .checkout-field {
+        gap: 5px !important;
+    }
+
+    .checkout-field select,
+    .checkout-field input {
+        min-height: 46px;
+        padding: 11px 12px !important;
+    }
+
+    .checkout-payment-options button {
+        min-height: 50px !important;
+    }
+
+    .checkout-confirm {
+        min-height: 48px !important;
+        margin-top: 0 !important;
+    }
+}
+
+/* Ajustes Fase 4: priorizar plato, lectura y acceso directo a la carta. */
+#inicio > video {
+    opacity: 0.9 !important;
+    object-position: center 46% !important;
+}
+
+#inicio > div:nth-of-type(1) {
+    background: linear-gradient(
+        180deg,
+        rgba(16, 16, 18, 0.2) 0%,
+        rgba(16, 16, 18, 0.16) 52%,
+        rgba(16, 16, 18, 0.82) 100%
+    ) !important;
+}
+
+#inicio > div:nth-of-type(2) {
+    background: linear-gradient(
+        90deg,
+        rgba(16, 16, 18, 0.58) 0%,
+        rgba(16, 16, 18, 0.3) 52%,
+        rgba(16, 16, 18, 0.08) 100%
+    ) !important;
+}
+
+#inicio > div:last-child > div:nth-child(2) {
+    width: clamp(300px, 29vw, 380px) !important;
+    max-width: 380px !important;
+    flex: 0 1 380px !important;
+}
+
+#inicio > div:last-child > div:nth-child(2) > div:first-child {
+    opacity: 0.35;
+    filter: blur(24px) !important;
+}
+
+#inicio > div:last-child > div:nth-child(2) > div:nth-child(2) {
+    opacity: 0.62;
+}
+
+#inicio > div:last-child > div:nth-child(2) > div:nth-child(4) {
+    display: none !important;
+}
+
+#inicio > div:last-child > div:nth-child(2) > div:nth-child(5) {
+    transform: translateY(-4px) scale(0.94) !important;
+}
+
+#inicio .home-delivery-row {
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    margin-top: 26px !important;
+    overflow: visible !important;
+}
+
+#inicio .home-delivery-row > span:first-child {
+    flex-basis: auto;
+}
+
+#inicio .home-delivery-row > span:nth-child(2) {
+    display: none;
+}
+
+.home-management-note {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+    color: #a7a7b0;
+    font: 600 11px/1.3 "DM Sans", sans-serif;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.home-management-note strong {
+    padding: 5px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 999px;
+    color: #c4c4cb;
+    font-size: 11px;
+    letter-spacing: 0.02em;
+    text-transform: none;
+}
+
+.checkout-order-summary {
+    display: grid;
+    gap: 9px;
+    margin: 0 0 4px;
+    padding: 13px 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.04);
+    color: #b8b8c0;
+    font: 600 13px/1.35 "DM Sans", sans-serif;
+}
+
+.checkout-order-summary > div {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.checkout-order-summary strong {
+    color: #f5f3ee;
+    font-family: Outfit, sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.checkout-order-summary .checkout-final-total {
+    padding-top: 9px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #f5f3ee;
+}
+
+.checkout-order-summary .checkout-final-total strong {
+    color: #ffc20e;
+    font-size: 18px;
+}
+
+#menu {
+    grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr) !important;
+}
+
+#menu .menu-dish-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+}
+
+#menu .menu-category-nav {
+    position: sticky;
+    z-index: 20;
+    top: 90px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0 0 18px;
+    padding: 8px 0;
+    background: rgba(20, 20, 22, 0.94);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+#menu .menu-category-nav a {
+    display: inline-flex;
+    min-height: 38px;
+    align-items: center;
+    justify-content: center;
+    padding: 0 13px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 999px;
+    background: #202125;
+    color: #e8e6e1;
+    font: 700 12px/1.2 "DM Sans", sans-serif;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+#menu .menu-category-nav a:hover,
+#menu .menu-category-nav a:focus-visible {
+    border-color: rgba(255, 194, 14, 0.7);
+    background: rgba(255, 194, 14, 0.1);
+    color: #ffd454;
+}
+
+#menu .scp4 {
+    padding: 14px !important;
+    border-radius: 16px !important;
+}
+
+#menu .menu-dish-photo {
+    aspect-ratio: 16 / 10 !important;
+}
+
+#menu .menu-dish-photo img {
+    object-position: center 50% !important;
+}
+
+#menu .anatomy-layer {
+    min-height: 104px !important;
+    margin-bottom: 6px;
+    padding: 6px 8px;
+}
+
+#menu .anatomy-layer-art,
+#menu .anatomy-layer-leche .anatomy-layer-art {
+    min-height: 88px !important;
+}
+
+#menu .anatomy-layer-visual img {
+    max-height: 86px;
+}
+
+#menu [id^="plato-"] {
+    scroll-margin-top: 148px;
+}
+
+@media (min-width: 721px) and (max-width: 1100px) {
+    #menu {
+        grid-template-columns: minmax(0, 1fr) !important;
+    }
+
+    #menu > div:nth-child(2) {
+        order: -1;
+    }
+
+    #menu > div:first-child {
+        order: 1;
+    }
+
+    #menu .menu-category-nav {
+        top: 82px;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overscroll-behavior-x: contain;
+        scrollbar-width: none;
+    }
+
+    #menu .menu-category-nav::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+@media (max-width: 720px) {
+    #inicio > div:last-child > div:nth-child(2) {
+        width: min(58vw, 230px) !important;
+        max-width: 230px !important;
+        flex-basis: 230px !important;
+        margin-top: -4px;
+    }
+
+    #inicio > div:last-child > div:nth-child(2) > div {
+        inset: 5% !important;
+    }
+
+    #inicio h1 {
+        font-size: clamp(38px, 10.2vw, 46px) !important;
+    }
+
+    #inicio .home-delivery-row > span:first-child {
+        flex-basis: 100%;
+    }
+
+    #menu {
+        grid-template-columns: minmax(0, 1fr) !important;
+    }
+
+    #menu .menu-category-nav {
+        top: 76px;
+        flex-wrap: wrap;
+        gap: 7px;
+        margin-bottom: 14px;
+        overflow: visible;
+    }
+
+    #menu .menu-category-nav a {
+        min-height: 44px;
+        padding: 0 12px;
+    }
+
+    #menu .menu-dish-grid {
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 10px !important;
+    }
+
+    #menu .scp4 {
+        display: grid !important;
+        grid-template-columns: 78px minmax(0, 1fr) !important;
+        grid-template-areas:
+            "photo title"
+            "photo rating"
+            "tags tags"
+            "description description"
+            "action action";
+        align-items: start;
+        gap: 8px 12px !important;
+        padding: 11px !important;
+    }
+
+    #menu .scp4 > .menu-dish-photo {
+        grid-area: photo;
+        width: 78px !important;
+        height: auto !important;
+        max-height: none !important;
+        aspect-ratio: 1 !important;
+        margin: 0 !important;
+    }
+
+    #menu .scp4 > h3 {
+        grid-area: title;
+        align-self: end;
+        margin: 0 !important;
+        font-size: clamp(17px, 4.8vw, 20px) !important;
+    }
+
+    #menu .scp4 > div:nth-child(3) {
+        grid-area: rating;
+        align-self: start;
+        flex-wrap: wrap;
+        gap: 5px !important;
+        margin: 0 !important;
+    }
+
+    #menu .scp4 > div:nth-child(4) {
+        grid-area: tags;
+    }
+
+    #menu .scp4 > p {
+        grid-area: description;
+        margin: 0 !important;
+        font-size: 13px !important;
+        line-height: 1.45 !important;
+    }
+
+    #menu .scp4 > div:last-child {
+        grid-area: action;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px !important;
+        margin-top: 2px;
+    }
+
+    #menu .anatomy-layer {
+        min-height: 94px !important;
+        grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr) !important;
+    }
+
+    .reserve-form-card button[aria-label="+"],
+    .reserve-form-card button[aria-label="-"] {
+        width: 44px !important;
+        height: 44px !important;
+        flex: 0 0 44px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #inicio > video {
+        display: none !important;
+    }
+}
+
+html {
+    overflow-x: clip;
+}
