@@ -1121,3 +1121,224 @@ body:has(#menu) .reserve-whatsapp {
 html {
     overflow-x: clip;
 }
+
+/* Carta editorial: estilos limitados a la sección del menú. */
+#menu {
+    grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr) !important;
+    gap: clamp(24px, 3.2vw, 44px) !important;
+}
+
+#menu .menu-dish-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    align-items: stretch;
+    gap: 18px !important;
+}
+
+#menu .scp4 {
+    min-width: 0;
+    height: 100%;
+    padding: 12px !important;
+    gap: 9px !important;
+    border: 1px solid rgba(255, 255, 255, 0.09) !important;
+    border-radius: 16px !important;
+    background: linear-gradient(160deg, #202125 0%, #191a1e 100%) !important;
+    box-shadow: none !important;
+}
+
+#menu .menu-dish-photo {
+    aspect-ratio: 4 / 3 !important;
+    flex: 0 0 auto;
+    border-radius: 11px !important;
+    background: #25262a !important;
+}
+
+#menu .menu-dish-photo img {
+    object-fit: cover !important;
+    object-position: center 48% !important;
+    border-radius: 11px !important;
+}
+
+#menu .scp4 > h3 {
+    margin: 2px 0 0 !important;
+    font-size: clamp(17px, 1.45vw, 20px) !important;
+    line-height: 1.18 !important;
+}
+
+#menu .scp4 > div:nth-child(3) {
+    gap: 6px !important;
+}
+
+#menu .scp4 > div:nth-child(4) {
+    gap: 5px !important;
+}
+
+#menu .scp4 > div:nth-child(4) span {
+    padding: 4px 8px !important;
+    font-size: 11px !important;
+}
+
+#menu .scp4 > p {
+    min-height: 3.1em;
+    font-size: 13px !important;
+    line-height: 1.45 !important;
+}
+
+#menu .scp4 > div:last-child {
+    margin-top: auto !important;
+    padding-top: 5px;
+}
+
+#menu .anatomy-layer {
+    min-height: 76px !important;
+    margin-bottom: 4px !important;
+    padding: 4px 2px !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+#menu .anatomy-layer-art,
+#menu .anatomy-layer-leche .anatomy-layer-art {
+    min-height: 66px !important;
+}
+
+#menu .anatomy-layer-visual img {
+    max-height: 66px;
+}
+
+#menu .anatomy-layer-copy > div > div:nth-child(2) {
+    font-size: clamp(14px, 1.3vw, 17px) !important;
+}
+
+#menu .anatomy-layer-description {
+    font-size: 12px !important;
+}
+
+#menu .anatomy-assemble-control {
+    margin-top: 16px !important;
+}
+
+@media (min-width: 901px) {
+    #menu > div:first-child {
+        position: sticky !important;
+        top: 112px !important;
+        max-height: calc(100vh - 130px) !important;
+        overflow-y: auto !important;
+        scrollbar-width: thin;
+    }
+}
+
+@media (min-width: 721px) and (max-width: 900px) {
+    #menu {
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 30px !important;
+    }
+
+    #menu > div:nth-child(2) {
+        order: -1;
+    }
+
+    #menu > div:first-child {
+        order: 1;
+        max-height: none !important;
+        overflow: visible !important;
+    }
+
+    #menu .menu-dish-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+}
+
+@media (max-width: 720px) {
+    #menu {
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 24px !important;
+    }
+
+    #menu > div:nth-child(2) {
+        order: -1;
+    }
+
+    #menu > div:first-child {
+        order: 1;
+        max-height: none !important;
+        overflow: visible !important;
+    }
+
+    #menu .menu-dish-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 11px !important;
+    }
+
+    #menu .scp4 {
+        height: 100%;
+        padding: 9px !important;
+        gap: 8px !important;
+    }
+
+    #menu .menu-dish-photo {
+        width: 100% !important;
+        height: auto !important;
+        max-height: none !important;
+        aspect-ratio: 4 / 3 !important;
+    }
+
+    #menu .scp4 > h3 {
+        font-size: clamp(15px, 4.2vw, 18px) !important;
+    }
+
+    #menu .scp4 > div:nth-child(3) {
+        flex-wrap: wrap;
+        font-size: 12px;
+    }
+
+    #menu .scp4 > div:nth-child(3) span:last-child {
+        font-size: 10px !important;
+    }
+
+    #menu .scp4 > div:nth-child(4) span {
+        padding: 3px 6px !important;
+        font-size: 10px !important;
+    }
+
+    #menu .scp4 > p {
+        min-height: 0;
+        font-size: 12px !important;
+        line-height: 1.4 !important;
+    }
+
+    #menu .scp4 > div:last-child span {
+        font-size: 16px !important;
+    }
+
+    #menu .scp4 > div:last-child button {
+        width: 44px !important;
+        height: 44px !important;
+        flex: 0 0 44px;
+    }
+
+    #menu > div:first-child > div:nth-child(2) h2 {
+        font-size: clamp(26px, 7vw, 34px) !important;
+    }
+
+    #menu .anatomy-layer {
+        min-height: 82px !important;
+    }
+}
+
+@media (max-width: 390px) {
+    #menu .menu-dish-grid {
+        gap: 8px !important;
+    }
+
+    #menu .scp4 {
+        padding: 7px !important;
+        gap: 7px !important;
+    }
+
+    #menu .scp4 > h3 {
+        font-size: 15px !important;
+    }
+
+    #menu .scp4 > div:nth-child(3) span:last-child {
+        display: none;
+    }
+}

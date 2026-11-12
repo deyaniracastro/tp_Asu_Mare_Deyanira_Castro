@@ -303,6 +303,20 @@
     if (!nameInput || !dateInput || !timeSelect || !peopleControl) return false;
     form.setAttribute('data-reservation-enhanced', 'true');
 
+    const CLOSED_DAYS = [];
+    const requestedBranch = new URLSearchParams(window.location.search).get('sucursal');
+    const branchNames = { palermo: 'Palermo', once: 'Once', plaza: 'Paseo La Plaza' };
+    const requestedName = branchNames[requestedBranch];
+    if (requestedName && !form.hasAttribute('data-query-branch-selected')) {
+      const branchButton = Array.from(form.querySelectorAll('button')).find(function (button) {
+        return button.textContent.includes(requestedName);
+      });
+      if (branchButton) {
+        form.setAttribute('data-query-branch-selected', 'true');
+        branchButton.click();
+      }
+    }
+
     const english = function () {
       return Array.from(document.querySelectorAll('.international-option'))
         .slice(0, 2)
@@ -472,6 +486,13 @@
       if (!dateInput.value || dateInput.validity.rangeUnderflow) {
         return showError(
           english() ? 'Choose a valid date today or later.' : 'Elegí una fecha válida a partir de hoy.',
+          dateInput
+        );
+      }
+      const selectedDate = new Date(dateInput.value + 'T12:00:00');
+      if (CLOSED_DAYS.includes(selectedDate.getDay())) {
+        return showError(
+          english() ? "We're closed that day. Please choose another date." : 'Ese día estamos cerrados. Elegí otra fecha.',
           dateInput
         );
       }

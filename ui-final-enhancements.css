@@ -271,3 +271,16 @@
     border-color: #ffc20e;
     color: #ffd454;
 }
+
+/* Keep existing links easy to tap without changing their visual treatment. */
+.home-promo-link,
+footer nav a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+}
+
+@media (max-width: 720px) {
+  .favorite-badge { padding: 4px 8px !important; font-size: 9px !important; }
+}
+.home-banner-cta { text-transform: uppercase; }
